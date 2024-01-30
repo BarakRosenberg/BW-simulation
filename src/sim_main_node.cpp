@@ -45,8 +45,8 @@ SimulationMainNode::SimulationMainNode() : nh_("~"), rate_(10) {
 	// 177.6m in world = 22.5m in sim
 	simScale = (177.6 / 22.5) * map_scale;
 
-	// distance traveled in 2 seconds to ensure braking
-	brake_dist = max_linear_vel * 1.0;
+	// distance traveled in 1.0 seconds to ensure braking this is multiplied by 1.2
+	brake_dist = max_linear_vel * 1.0 * 1.2;
 }
 
 // Destructor
@@ -114,7 +114,7 @@ void SimulationMainNode::moveRobot(const geographic_msgs::GeoPoint::ConstPtr& ta
 		else{
 			vel_msg.angular.z = 0;
 		}
-		ROS_INFO("angle_err: %f, ang_vel: %f", angle_err, vel_msg.angular.z);
+//		ROS_INFO("angle_err: %f, ang_vel: %f", angle_err, vel_msg.angular.z);
 
 		// Calculate desired linear velocity
 		double temp_lin_vel = 0.0;
