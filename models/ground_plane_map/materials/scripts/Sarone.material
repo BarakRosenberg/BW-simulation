@@ -1,0 +1,13 @@
+material sarona_map
+{
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture SaronaMap.jpg
+      }
+    }
+  }
+}
